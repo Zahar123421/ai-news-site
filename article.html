@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Новость — ИИ Дайджест</title>
+  <meta name="description" content="Новость об искусственном интеллекте — ИИ Дайджест.">
+  <meta name="theme-color" content="#0d1117">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="ИИ Дайджест">
+  <meta property="og:locale" content="ru_RU">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">
+        <span class="logo-icon">◆</span>
+        <span class="logo-text">ИИ&nbsp;Дайджест</span>
+      </a>
+      <nav class="nav">
+        <a class="back-link" href="index.html">← Все новости</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <article class="article-wrap" id="article">
+      <div class="meta" id="a-meta">
+        <span class="badge" id="a-cat"></span>
+        <span class="date" id="a-date"></span>
+      </div>
+      <h1 id="a-title"></h1>
+      <img class="article-banner" id="a-banner" alt="" hidden>
+      <div class="video-wrap" id="a-video" hidden></div>
+      <div class="article-text" id="a-text"></div>
+      <p class="source-note" id="a-source"></p>
+    </article>
+
+    <p class="empty" id="a-notfound" hidden>Новость не найдена. <a href="index.html">Вернуться на главную</a></p>
+
+    <section class="related" id="related" hidden>
+      <h2 class="feed-title">Читайте также</h2>
+      <div class="news-grid" id="related-grid"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <div class="logo logo-footer"><span class="logo-icon">◆</span> ИИ Дайджест</div>
+        <p class="footer-note">Ежедневный дайджест новостей об искусственном интеллекте.<br>
+        Обновлено: <span id="last-updated">—</span></p>
+      </div>
+      <div class="footer-links">
+        <p>Новости собираются автоматически и публикуются с указанием источников.</p>
+        <p>© 2026 ИИ Дайджест</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/article.js"></script>
+</body>
+</html>

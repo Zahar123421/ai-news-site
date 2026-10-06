@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ИИ Дайджест — новости искусственного интеллекта каждый день</title>
+  <meta name="description" content="Свежие новости про ИИ каждый день: новые нейросети и модели, бизнес и инвестиции, исследования и наука. Кратко и с ссылками на первоисточники.">
+  <meta name="theme-color" content="#0d1117">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="ИИ Дайджест — новости искусственного интеллекта каждый день">
+  <meta property="og:description" content="Свежие новости про ИИ: нейросети, бизнес, наука. Обновляется ежедневно.">
+  <meta property="og:locale" content="ru_RU">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">
+        <span class="logo-icon">◆</span>
+        <span class="logo-text">ИИ&nbsp;Дайджест</span>
+      </a>
+      <nav class="nav" id="nav">
+        <button class="nav-btn active" data-category="all">Все</button>
+        <button class="nav-btn" data-category="Модели">Модели</button>
+        <button class="nav-btn" data-category="Бизнес">Бизнес</button>
+        <button class="nav-btn" data-category="Индустрия">Индустрия</button>
+        <button class="nav-btn" data-category="Наука">Наука</button>
+        <button class="nav-btn" data-category="Общество">Общество</button>
+      </nav>
+      <div class="search-wrap">
+        <input type="search" id="search" placeholder="Поиск новостей…" aria-label="Поиск новостей">
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero" id="hero" hidden>
+      <article class="hero-card">
+        <img class="hero-img" id="hero-img" alt="" hidden>
+        <div class="hero-body">
+          <div class="meta">
+            <span class="badge badge-featured">Главная новость</span>
+            <span class="date" id="hero-date"></span>
+          </div>
+          <h1 id="hero-title"></h1>
+          <p id="hero-summary"></p>
+          <a id="hero-link" class="btn" href="#">Читать полностью →</a>
+        </div>
+      </article>
+    </section>
+
+    <!-- Место под рекламу: сюда позже вставляется код AdSense -->
+    <div class="ad-slot" id="ad-top">Рекламный блок</div>
+
+    <section class="feed-head">
+      <h2 class="feed-title">Последние новости</h2>
+      <span class="feed-count" id="feed-count"></span>
+    </section>
+
+    <section class="news-grid" id="news-grid" aria-live="polite"></section>
+
+    <p class="empty" id="empty" hidden>Ничего не найдено. Попробуй другой запрос.</p>
+
+    <div class="load-more-wrap">
+      <button class="btn btn-ghost" id="load-more" hidden>Показать ещё</button>
+    </div>
+
+    <div class="ad-slot ad-bottom">Рекламный блок</div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <div class="logo logo-footer"><span class="logo-icon">◆</span> ИИ Дайджест</div>
+        <p class="footer-note">Ежедневный дайджест новостей об искусственном интеллекте.<br>
+        Обновлено: <span id="last-updated">—</span></p>
+      </div>
+      <div class="footer-links">
+        <p>Новости собираются автоматически и публикуются с указанием источников.</p>
+        <p>© 2026 ИИ Дайджест</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
