@@ -144,7 +144,7 @@ window.NEWS_DATA = {
       category: "Модели",
       source: "ИИтог",
       url: "https://iitog.ru/reflection-anonsirovala-beam-otkrytuyu-model-na-501-mlrd/",
-      media: "img/kandinsky-demo.mp4",
+      media: "img/video-promo-v2-ru.mp4",
       mediaCaption: "Официальный демонстрационный видеоролик Kandinsky 6.0 от Kandinsky Lab (2026). Воспроизведение и звук управляются встроенным плеером — регулятор громкости в правой части; видео также демонстрирует работу генерации изображений по запросу.",
 
     },
