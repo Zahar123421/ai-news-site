@@ -3,25 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Новость — ИИ Дайджест</title>
-  <meta name="description" content="Новость об искусственном интеллекте — ИИ Дайджест.">
-  <meta name="theme-color" content="#0d1117">
+  <title>Новость — НейроЛента</title>
+  <meta name="description" content="Новость про нейросети и искусственный интеллект — НейроЛента.">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)">
   <meta property="og:type" content="article">
-  <meta property="og:site_name" content="ИИ Дайджест">
+  <meta property="og:site_name" content="НейроЛента">
   <meta property="og:locale" content="ru_RU">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
+  <script>
+    try {
+      var t = localStorage.getItem("nl-theme") || "light";
+      if (t === "auto") t = (window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches) ? "dark" : "light";
+      document.documentElement.setAttribute("data-theme", t);
+    } catch (e) { document.documentElement.setAttribute("data-theme", "light"); }
+  </script>
 </head>
 <body>
   <header class="site-header">
     <div class="container header-inner">
       <a class="logo" href="index.html">
         <span class="logo-icon">◆</span>
-        <span class="logo-text">ИИ&nbsp;Дайджест</span>
+        <span class="logo-text">Нейро&nbsp;Лента</span>
       </a>
       <nav class="nav">
         <a class="back-link" href="index.html">← Все новости</a>
       </nav>
+      <button class="theme-btn" id="theme-btn" title="Сменить тему" aria-label="Сменить тему (светлая/тёмная/авто)"><span id="theme-icon">☀️</span></button>
     </div>
   </header>
 
@@ -30,6 +39,7 @@
       <div class="meta" id="a-meta">
         <span class="badge" id="a-cat"></span>
         <span class="date" id="a-date"></span>
+        <span class="badge badge-read" id="a-readtime" hidden></span>
       </div>
       <h1 id="a-title"></h1>
       <img class="article-banner" id="a-banner" alt="" hidden>
@@ -49,8 +59,8 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <div>
-        <div class="logo logo-footer"><span class="logo-icon">◆</span> ИИ Дайджест</div>
-        <p class="footer-note">Ежедневный дайджест новостей об искусственном интеллекте.<br>
+        <div class="logo logo-footer"><span class="logo-icon">◆</span> НейроЛента</div>
+        <p class="footer-note">Ежедневные новости про нейросети и искусственный интеллект.<br>
         Обновлено: <span id="last-updated">—</span></p>
       </div>
       <div class="footer-links">
@@ -61,6 +71,7 @@
   </footer>
 
   <script src="js/data.js"></script>
+  <script src="js/theme.js"></script>
   <script src="js/article.js"></script>
 </body>
 </html>

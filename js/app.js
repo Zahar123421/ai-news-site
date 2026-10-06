@@ -127,5 +127,16 @@
   var upd = document.getElementById("last-updated");
   if (upd) upd.textContent = formatDate(data.lastUpdated);
 
+  // Кнопка «наверх»
+  var toTop = document.getElementById("to-top");
+  if (toTop) {
+    window.addEventListener("scroll", function () {
+      toTop.classList.toggle("show", window.scrollY > 450);
+    }, { passive: true });
+    toTop.addEventListener("click", function () {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
+
   render();
 })();

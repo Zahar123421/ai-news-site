@@ -72,7 +72,7 @@ for (const item of data.items) {
   ${nodes(seed, 26)}
   <rect x="0" y="0" width="1200" height="630" fill="${p.b}" fill-opacity="0.45"/>
   <rect x="48" y="48" width="8" height="534" fill="${p.accent}"/>
-  <text x="72" y="150" font-family="Arial, sans-serif" font-size="30" font-weight="bold" fill="${p.accent}" letter-spacing="4">ИИ ДАЙДЖЕСТ ${p.icon} ${item.category.toUpperCase()}</text>
+  <text x="72" y="150" font-family="Arial, sans-serif" font-size="30" font-weight="bold" fill="${p.accent}" letter-spacing="4">НЕЙРОЛЕНТА ${p.icon} ${item.category.toUpperCase()}</text>
   <text x="72" y="250" font-family="Arial, sans-serif" font-size="46" font-weight="bold" fill="#e6edf3">${tspans}</text>
   <text x="72" y="575" font-family="Arial, sans-serif" font-size="26" fill="#9aa7b5">${item.date}</text>
 </svg>`;

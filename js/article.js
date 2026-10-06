@@ -41,7 +41,7 @@
   }
 
   // Заголовок страницы + OG
-  document.title = item.title + " — ИИ Дайджест";
+  document.title = item.title + " — НейроЛента";
   var ogT = document.querySelector('meta[property="og:title"]');
   if (ogT) ogT.setAttribute("content", item.title);
   var ogD = document.createElement("meta");
@@ -54,6 +54,16 @@
   catEl.className = "badge " + (CAT_CLASS[item.category] || "");
   document.getElementById("a-date").textContent = formatDate(item.date);
   document.getElementById("a-title").textContent = item.title;
+
+  // Время чтения
+  var rt = document.getElementById("a-readtime");
+  if (rt) {
+    var wordsText = (Array.isArray(item.content) ? item.content.join(" ") : item.summary);
+    var wcount = wordsText.split(/\s+/).filter(Boolean).length;
+    var mins = Math.max(1, Math.round(wcount / 170));
+    rt.textContent = "📖 " + mins + " мин чтения";
+    rt.hidden = false;
+  }
 
   // Обложка статьи (локальная, ничего чужого)
   var banner = document.getElementById("a-banner");

@@ -1,5 +1,24 @@
 /* ИИ Дайджест — стили */
+/* НейроЛента — темы. Базовая: светлая (белая). Тёмная — по выбору. */
 :root {
+  --bg: #f4f6fa;
+  --bg-card: #ffffff;
+  --bg-elevated: #eaeef4;
+  --border: #d9e0ea;
+  --text: #17202b;
+  --text-dim: #5a6675;
+  --accent: #2563eb;
+  --accent-2: #7c3aed;
+  --featured: #d97706;
+  --header-bg: rgba(255, 255, 255, 0.92);
+  --hero-a: #eef4ff;
+  --hero-b: #f5f0ff;
+  --shadow: rgba(15, 23, 42, 0.10);
+  --radius: 14px;
+  --max-w: 1100px;
+}
+
+[data-theme="dark"] {
   --bg: #0d1117;
   --bg-card: #161b22;
   --bg-elevated: #1c2330;
@@ -9,8 +28,10 @@
   --accent: #4f8cff;
   --accent-2: #9d6bff;
   --featured: #ffb454;
-  --radius: 14px;
-  --max-w: 1100px;
+  --header-bg: rgba(13, 17, 23, 0.92);
+  --hero-a: #182031;
+  --hero-b: #1a1630;
+  --shadow: rgba(0, 0, 0, 0.45);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -36,7 +57,7 @@ body {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(13, 17, 23, 0.92);
+  background: var(--header-bg);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border);
 }
@@ -103,7 +124,7 @@ body {
 .hero { margin-top: 28px; }
 
 .hero-card {
-  background: linear-gradient(135deg, #182031 0%, #1a1630 100%);
+  background: linear-gradient(135deg, var(--hero-a) 0%, var(--hero-b) 100%);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   overflow: hidden;
@@ -184,7 +205,8 @@ body {
   margin: 28px 0;
   border: 1px dashed var(--border);
   border-radius: var(--radius);
-  color: #4a5568;
+  color: var(--text-dim);
+  opacity: 0.55;
   font-size: 13px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -318,7 +340,8 @@ body {
 }
 
 .source-name {
-  color: #5b6675;
+  color: var(--text-dim);
+  opacity: 0.75;
   font-size: 12.5px;
 }
 
@@ -409,12 +432,87 @@ body {
 
 .footer-links { text-align: right; max-width: 380px; }
 
+/* Переключатель темы */
+.theme-btn {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  width: 40px;
+  height: 40px;
+  font-size: 17px;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.theme-btn:hover { transform: rotate(20deg) scale(1.06); border-color: var(--accent); }
+
+/* Кнопка «наверх» */
+.to-top {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text);
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.2s ease;
+  z-index: 60;
+  box-shadow: 0 4px 16px var(--shadow);
+}
+
+.to-top.show { opacity: 1; pointer-events: auto; }
+.to-top:hover { transform: translateY(-3px); }
+
+/* Время чтения */
+.readtime {
+  color: var(--text-dim);
+  font-size: 13px;
+}
+
+.badge-read {
+  background: var(--bg-elevated);
+  color: var(--accent-2);
+}
+
 /* Responsive */
 @media (max-width: 720px) {
-  .header-inner { gap: 10px; }
-  .search-wrap { width: 100%; }
+  .header-inner { gap: 10px; padding-top: 10px; padding-bottom: 10px; }
+  .nav {
+    order: 3;
+    width: 100%;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 2px;
+  }
+  .nav::-webkit-scrollbar { display: none; }
+  .nav-btn { white-space: nowrap; }
+  .search-wrap { flex: 1; }
   .search-wrap input { width: 100%; }
   .hero-body { padding: 22px; }
+  .article-wrap { padding: 24px 18px; margin-top: 20px; }
+  .article-wrap h1 { font-size: 24px; }
+  .article-text p { font-size: 16px; }
+  .feed-title { font-size: 19px; }
   .footer-links { text-align: left; }
+  .news-grid { gap: 14px; }
+}
+
+@media (max-width: 480px) {
+  .logo { font-size: 17px; }
+  .logo-icon { font-size: 19px; }
+  .hero-body { padding: 18px; }
+  .hero h1 { font-size: 22px; }
+  .news-card { padding: 16px; }
+  .ad-slot { min-height: 60px; font-size: 11px; }
+  .to-top { right: 12px; bottom: 12px; width: 42px; height: 42px; }
 }
 
