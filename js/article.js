@@ -73,35 +73,37 @@
   banner.onerror = function () { banner.hidden = true; };
 
   // Видео-демо (локальный файл — читатель остаётся на нашем сайте)
-  if (item.media) {
-    var figure = document.createElement("figure");
-    figure.className = "article-media";
-    var m = document.createElement("img");
-    m.src = item.media;
-    m.alt = item.title;
-    m.loading = "lazy";
-    m.onerror = function () { figure.remove(); };
-    figure.appendChild(m);
-    if (item.mediaCaption) {
-      var cap = document.createElement("figcaption");
-      cap.textContent = item.mediaCaption;
-      figure.appendChild(cap);
+  if (item.media || item.video) {
+    var vwrap = document.getElementById("a-video");
+    if (item.media && item.media.indexOf(".mp4") !== -1) {
+      var figure = document.createElement("figure");
+      figure.className = "article-media";
+      var video = document.createElement("video");
+      video.controls = true;
+      video.autoplay = false;
+      video.playsInline = true;
+      video.preload = "metadata";
+      video.src = item.media;
+      video.title = item.title + " — видео-демо Kandinsky 6.0";
+      if (item.mediaCaption) {
+        var cap = document.createElement("figcaption");
+        cap.textContent = item.mediaCaption;
+        figure.appendChild(cap);
+      }
+      figure.appendChild(video);
+      vwrap.appendChild(figure);
+      vwrap.hidden = false;
+      video.style.setProperty("--plyr-vol-left", "0");
+    } else if (item.video) {
+      var frame = document.createElement("iframe");
+      frame.src = "https://www.youtube-nocookie.com/embed/" + encodeURIComponent(item.video);
+      frame.title = "Видео к новости: " + item.title;
+      frame.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture";
+      frame.allowFullscreen = true;
+      frame.setAttribute("loading", "lazy");
+      vwrap.appendChild(frame);
+      vwrap.hidden = false;
     }
-    var textNode = document.getElementById("a-text");
-    textNode.parentNode.insertBefore(figure, textNode.nextSibling);
-  }
-
-  // Внешний плеер — встроенный iframe, читатель остаётся на нашем сайте
-  if (item.video) {
-    var vw = document.getElementById("a-video");
-    var frame = document.createElement("iframe");
-    frame.src = "https://www.youtube-nocookie.com/embed/" + encodeURIComponent(item.video);
-    frame.title = "Видео к новости";
-    frame.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture";
-    frame.allowFullscreen = true;
-    frame.setAttribute("loading", "lazy");
-    vw.appendChild(frame);
-    vw.hidden = false;
   }
 
   // Текст: если есть полный content — используем его, иначе summary по предложениям
