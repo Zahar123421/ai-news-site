@@ -30,4 +30,4 @@ http.createServer((req, res) => {
     res.writeHead(200, {"Content-Type": MIME[path.extname(filePath)] || "application/octet-stream"});
     res.end(buf);
   });
-}).listen(PORT, () => console.log("ИИ Дайджест: http://localhost:" + PORT));
+}).listen(PORT, () => console.log("НейроЛента: http://localhost:" + PORT));
